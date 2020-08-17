@@ -1,11 +1,11 @@
 /**
  *
- * @param {*} a
- * @param {*} b
+ * @param {Number} a
+ * @param {Number} b
  */
 const findPairWithGivenSum = (a, b) => {
-  let x = 9;
-  return x;
+  console.log(a, b);
+  return a + b;
 };
 
-findPairWithGivenSum(1, 2);
+module.exports = findPairWithGivenSum;
