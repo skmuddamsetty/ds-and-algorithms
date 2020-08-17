@@ -4,10 +4,9 @@ test('findPairWithGivenSum function is defined', () => {
 });
 
 it('returns the expected sum', () => {
-  expect(findPairWithGivenSum(1, 2)).toBe(3);
+  findPairWithGivenSum([8, 7, 2, 5, 3, 1], 10);
   expect(console.log.mock.calls.length).toEqual(1);
-  expect(console.log.mock.calls[0][0]).toEqual(1);
-  expect(console.log.mock.calls[0][1]).toEqual(2);
+  expect(console.log.mock.calls[0][0]).toEqual(`Pair found at: 0, 2`);
 });
 
 beforeEach(() => {
