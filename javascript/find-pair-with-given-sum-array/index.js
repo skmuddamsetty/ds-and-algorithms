@@ -1,20 +1,22 @@
 /**
  *
+ * https://www.techiedelight.com/find-pair-with-given-sum-array/
  * @param {Number} a
  * @param {Number} b
  */
 const findPairWithGivenSum = (A, sum) => {
   let map = {};
   let index = 0;
+  let diff;
   for (let num of A) {
-    if (map[num] !== undefined) {
-      console.log(`Pair found at: ${map[num]}, ${index}`);
+    diff = sum - num;
+    if (map[diff] !== undefined) {
+      console.log(`Pair found at: ${map[diff]}, ${index}`);
       return;
     }
-    map[sum - num] = index;
+    map[num] = index;
     index++;
   }
 };
 
-findPairWithGivenSum([8, 7, 2, 5, 3, 1], 10);
 module.exports = findPairWithGivenSum;
