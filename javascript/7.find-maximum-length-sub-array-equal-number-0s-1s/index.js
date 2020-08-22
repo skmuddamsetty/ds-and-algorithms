@@ -28,9 +28,7 @@ const findMaxLengthSubArrayWithEqualZerosAndOnes = (A) => {
   console.log(
     `Max length sub array with equal number of 1\'s and 0\'s [${lowIndex},${highIndex}] ${maxLength}`
   );
+  return maxLength;
 };
 
-findMaxLengthSubArrayWithEqualZerosAndOnes([0, 0, 1, 0, 1, 0, 0]);
-findMaxLengthSubArrayWithEqualZerosAndOnes([1, 0, 1, 0, 1, 0, 0]);
-findMaxLengthSubArrayWithEqualZerosAndOnes([0, 0, 1, 0, 1, 0, 1]);
 module.exports = { findMaxLengthSubArrayWithEqualZerosAndOnes };

@@ -10,13 +10,15 @@ const zeroSumSubArray = (A) => {
   while (currIndex < A.length) {
     currSum = currSum + A[currIndex];
     if (map[currSum] !== undefined) {
-      console.log(map[currSum] + 1, currIndex);
+      return true;
+      // console.log(map[currSum] + 1, currIndex);
     }
     map[currSum] = currIndex;
     currIndex++;
   }
+  return false;
 };
 
 zeroSumSubArray([3, 4, -7, 3, 1, 3, 1, -4, -2, -2]);
 
-module.exports = zeroSumSubArray;
+module.exports = { zeroSumSubArray };

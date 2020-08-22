@@ -22,9 +22,7 @@ const findMaxLengthSubArrayWithGivenSum = (A, targetSum) => {
     }
     index++;
   }
-  console.log(
-    `Length of Longest SubArray with Given Sum ${lengthOfLongestArray}`
-  );
+  return lengthOfLongestArray;
 };
 
 findMaxLengthSubArrayWithGivenSum([1, 4, 3, 2, 1, 1], 7);

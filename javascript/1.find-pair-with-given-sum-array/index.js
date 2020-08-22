@@ -11,7 +11,7 @@ const findPairWithGivenSum = (A, sum) => {
   for (let num of A) {
     diff = sum - num;
     if (map[diff] !== undefined) {
-      console.log(`Pair found at: ${map[diff]}, ${index}`);
+      console.log(`[${map[diff]}, ${index}]`);
       return;
     }
     map[num] = index;
