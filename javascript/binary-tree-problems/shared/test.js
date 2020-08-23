@@ -1,6 +1,7 @@
 const { Node } = require('./node');
 const {
   checkIfTwoBinaryTreesIdentical_iterative,
+  checkIfTwoBinaryTreesIdentical_recursive,
 } = require('../1.check-if-two-binary-trees-are-identical-not-iterative-recursive/index');
 
 let x;
@@ -30,7 +31,7 @@ beforeEach(() => {
            /    \
           10     20
          / \     / \
-        8   12  16  25
+        8   12  16  26
                       \
                        \
                        32
@@ -41,7 +42,7 @@ beforeEach(() => {
   y.left.left = new Node(8);
   y.left.right = new Node(12);
   y.right.left = new Node(16);
-  y.right.right = new Node(25);
+  y.right.right = new Node(26);
   y.right.right.right = new Node(32);
   // prepare z tree
   /* Construct below Tree
@@ -65,5 +66,13 @@ beforeEach(() => {
 });
 
 it('checkIfTwoBinaryTreesIdentical_iterative:should tell if two given trees are identical or not', () => {
-  expect(checkIfTwoBinaryTreesIdentical_iterative(x, y)).toBe(true);
+  expect(checkIfTwoBinaryTreesIdentical_iterative(x, x)).toBe(true);
+  expect(checkIfTwoBinaryTreesIdentical_iterative(x, y)).toBe(false);
+  expect(checkIfTwoBinaryTreesIdentical_iterative(x, z)).toBe(false);
+});
+
+it('checkIfTwoBinaryTreesIdentical_recursive:should tell if two given trees are identical or not', () => {
+  expect(checkIfTwoBinaryTreesIdentical_recursive(x, x)).toBe(true);
+  expect(checkIfTwoBinaryTreesIdentical_recursive(x, y)).toBe(false);
+  expect(checkIfTwoBinaryTreesIdentical_recursive(x, z)).toBe(false);
 });
