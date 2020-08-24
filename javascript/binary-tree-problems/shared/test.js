@@ -3,11 +3,16 @@ const {
   checkIfTwoBinaryTreesIdentical_iterative,
   checkIfTwoBinaryTreesIdentical_recursive,
 } = require('../1.check-if-two-binary-trees-are-identical-not-iterative-recursive/index');
+const {
+  printCornerNodes_iterative,
+} = require('../33.print-corner-nodes-every-level-binary-tree/index');
 
 let x;
 let y;
 let z;
+let a;
 beforeEach(() => {
+  jest.spyOn(console, 'log').mockImplementation(() => {});
   // prepare x tree
   /* Construct below Tree
              15
@@ -63,6 +68,29 @@ beforeEach(() => {
   z.right.right = new Node(6);
   z.right.left.left = new Node(7);
   z.right.left.right = new Node(8);
+  // prepare a tree
+  /* Construct below tree
+		             1
+		            / \
+		           /   \
+		          2     3
+		         /     / \
+		        /     /   \
+		       4     5     6
+		      /     / \     \
+		     /     /   \     \
+		    7     8     9     10
+	*/
+  a = new Node(1);
+  a.left = new Node(2);
+  a.right = new Node(3);
+  a.left.left = new Node(4);
+  a.right.left = new Node(5);
+  a.right.right = new Node(6);
+  a.left.left.left = new Node(7);
+  a.right.left.left = new Node(8);
+  a.right.left.right = new Node(9);
+  a.right.right.right = new Node(10);
 });
 
 it('checkIfTwoBinaryTreesIdentical_iterative:should tell if two given trees are identical or not', () => {
@@ -75,4 +103,15 @@ it('checkIfTwoBinaryTreesIdentical_recursive:should tell if two given trees are 
   expect(checkIfTwoBinaryTreesIdentical_recursive(x, x)).toBe(true);
   expect(checkIfTwoBinaryTreesIdentical_recursive(x, y)).toBe(false);
   expect(checkIfTwoBinaryTreesIdentical_recursive(x, z)).toBe(false);
+});
+
+/**
+ * printCornerNodes_iterative
+ */
+it('printCornerNodes_iterative: should print all corner nodes of given tree', () => {
+  printCornerNodes_iterative(a);
+  expect(console.log.mock.calls[0][0]).toEqual('1');
+  expect(console.log.mock.calls[1][0]).toEqual(2, 3);
+  expect(console.log.mock.calls[2][0]).toEqual(4, 6);
+  expect(console.log.mock.calls[3][0]).toEqual(7, 10);
 });
