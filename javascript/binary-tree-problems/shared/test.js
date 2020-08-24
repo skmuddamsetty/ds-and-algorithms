@@ -4,7 +4,7 @@ const {
   checkIfTwoBinaryTreesIdentical_recursive,
 } = require('../1.check-if-two-binary-trees-are-identical-not-iterative-recursive/index');
 const {
-  printCornerNodes_iterative,
+  printCornerNodes,
 } = require('../33.print-corner-nodes-every-level-binary-tree/index');
 
 let x;
@@ -106,12 +106,12 @@ it('checkIfTwoBinaryTreesIdentical_recursive:should tell if two given trees are 
 });
 
 /**
- * printCornerNodes_iterative
+ * printCornerNodes
  */
-it('printCornerNodes_iterative: should print all corner nodes of given tree', () => {
-  printCornerNodes_iterative(a);
+it('printCornerNodes: should print all corner nodes of given tree', () => {
+  printCornerNodes(a);
   expect(console.log.mock.calls[0][0]).toEqual('1');
-  expect(console.log.mock.calls[1][0]).toEqual(2, 3);
-  expect(console.log.mock.calls[2][0]).toEqual(4, 6);
-  expect(console.log.mock.calls[3][0]).toEqual(7, 10);
+  expect(console.log.mock.calls[1][0]).toEqual('2,3');
+  expect(console.log.mock.calls[2][0]).toEqual('4,6');
+  expect(console.log.mock.calls[3][0]).toEqual('7,10');
 });
