@@ -17,6 +17,11 @@ const {
   findDifferenceBetweenEvenAndOddNodes,
 } = require('../67.difference-between-sum-nodes-odd-even-levels/index');
 
+const {
+  findMaxWidthOfBinaryTree_iterative,
+  findMaxWidthOfBinaryTree_recursive,
+} = require('../42.find-maximum-width-given-binary-tree/index');
+
 let x;
 let y;
 let z;
@@ -172,4 +177,18 @@ it('findSumOfDiagonalNodes: should return an array of all diagonal nodes', () =>
  */
 it('findDifferenceBetweenEvenAndOddNodes: should return the difference between odd and even level nodes', () => {
   expect(findDifferenceBetweenEvenAndOddNodes(b)).toBe(-4);
+});
+
+/**
+ * findMaxWidthOfBinaryTree_iterative
+ */
+
+it('findMaxWidthOfBinaryTree_iterative: should return the maximum width of a binary tree', () => {
+  expect(findMaxWidthOfBinaryTree_iterative(b)).toBe(3);
+  expect(findMaxWidthOfBinaryTree_iterative(y)).toBe(4);
+});
+
+it('findMaxWidthOfBinaryTree_recursive: should return the maximum width of a binary tree', () => {
+  expect(findMaxWidthOfBinaryTree_recursive(b)).toBe(3);
+  expect(findMaxWidthOfBinaryTree_recursive(y)).toBe(4);
 });
