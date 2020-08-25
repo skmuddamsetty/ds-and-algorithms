@@ -1,8 +1,22 @@
+/**
+ * https://www.techiedelight.com/print-diagonal-traversal-binary-tree/
+ * @param {Node} root
+ * @param {Object} map
+ *
+ * Time Complexity: O(n)
+ * Space Coplexity: O(n)
+ */
 const getDiagonalNodes = (root, map = {}) => {
   helper(root, map);
   return Object.values(map);
 };
 
+/**
+ *
+ * @param {Node} root
+ * @param {Object} map
+ * @param {Number} diagonal
+ */
 const helper = (root, map, diagonal = 0) => {
   if (!root) {
     return;
