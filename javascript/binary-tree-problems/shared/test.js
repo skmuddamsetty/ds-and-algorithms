@@ -13,10 +13,15 @@ const {
   getDiagonalNodes,
 } = require('../35.print-diagonal-traversal-binary-tree/index');
 
+const {
+  findDifferenceBetweenEvenAndOddNodes,
+} = require('../67.difference-between-sum-nodes-odd-even-levels/index');
+
 let x;
 let y;
 let z;
 let a;
+let b;
 beforeEach(() => {
   jest.spyOn(console, 'log').mockImplementation(() => {});
 });
@@ -99,6 +104,28 @@ beforeEach(() => {
   a.right.left.left = new Node(8);
   a.right.left.right = new Node(9);
   a.right.right.right = new Node(10);
+  // prepare b tree
+  /* Construct below tree
+		          1
+		        /   \
+		       /     \
+		      2       3
+		     /      /  \
+		    /      /    \
+		   4      5      6
+		         / \
+		        /   \
+		       7     8
+		 */
+
+  b = new Node(1);
+  b.left = new Node(2);
+  b.right = new Node(3);
+  b.left.left = new Node(4);
+  b.right.left = new Node(5);
+  b.right.right = new Node(6);
+  b.right.left.left = new Node(7);
+  b.right.left.right = new Node(8);
 });
 
 /********************TEST CASES START********************/
@@ -138,4 +165,11 @@ it('findSumOfDiagonalNodes: should print sum of diagonal nodes', () => {
  */
 it('findSumOfDiagonalNodes: should return an array of all diagonal nodes', () => {
   expect(getDiagonalNodes(a)).toEqual([[1, 3, 6, 10], [2, 5, 9], [4, 8], [7]]);
+});
+
+/**
+ * findDifferenceBetweenEvenAndOddNodes
+ */
+it('findDifferenceBetweenEvenAndOddNodes: should return the difference between odd and even level nodes', () => {
+  expect(findDifferenceBetweenEvenAndOddNodes(b)).toBe(-4);
 });
