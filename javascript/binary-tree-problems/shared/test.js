@@ -26,6 +26,10 @@ const {
   printAllRootToLeafPaths,
 } = require('../27.print-all-paths-from-root-to-leaf-nodes-binary-tree/index');
 
+const {
+  findMaximumSumAndSumPath,
+} = require('../40.find-maximum-sum-root-to-leaf-path-binary-tree/index');
+
 describe('Unit tests for Binary Tree', () => {
   const log = console.log;
   let x;
@@ -214,5 +218,12 @@ describe('Unit tests for Binary Tree', () => {
     expect(console.log.mock.calls[1][0]).toEqual('[1,3,5,8]');
     expect(console.log.mock.calls[2][0]).toEqual('[1,3,5,9]');
     expect(console.log.mock.calls[3][0]).toEqual('[1,3,6,10]');
+  });
+
+  /**
+   * findMaximumSumAndSumPath
+   */
+  it('findMaximumSumAndSumPath: should return maximum sum path from root to leaf', () => {
+    expect(findMaximumSumAndSumPath(a)).toBe(20);
   });
 });
