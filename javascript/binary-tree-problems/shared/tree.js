@@ -1,5 +1,18 @@
 const { Node } = require('./node');
 
+/* Construct below tree
+		             1
+		            / \
+		           /   \
+		          2     3
+		         /     / \
+		        /     /   \
+		       4     5     6
+		      /     / \     \
+		     /     /   \     \
+		    7     8     9     10
+*/
+
 let a = new Node(1);
 a.left = new Node(2);
 a.right = new Node(3);
