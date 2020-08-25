@@ -6,6 +6,9 @@ const {
 const {
   printCornerNodes,
 } = require('../33.print-corner-nodes-every-level-binary-tree/index');
+const {
+  findSumOfDiagonalNodes,
+} = require('../34.find-diagonal-sum-given-binary-tree/index');
 
 let x;
 let y;
@@ -13,6 +16,8 @@ let z;
 let a;
 beforeEach(() => {
   jest.spyOn(console, 'log').mockImplementation(() => {});
+});
+beforeEach(() => {
   // prepare x tree
   /* Construct below Tree
              15
@@ -93,6 +98,7 @@ beforeEach(() => {
   a.right.right.right = new Node(10);
 });
 
+/********************TEST CASES START********************/
 it('checkIfTwoBinaryTreesIdentical_iterative:should tell if two given trees are identical or not', () => {
   expect(checkIfTwoBinaryTreesIdentical_iterative(x, x)).toBe(true);
   expect(checkIfTwoBinaryTreesIdentical_iterative(x, y)).toBe(false);
@@ -114,4 +120,12 @@ it('printCornerNodes: should print all corner nodes of given tree', () => {
   expect(console.log.mock.calls[1][0]).toEqual('2,3');
   expect(console.log.mock.calls[2][0]).toEqual('4,6');
   expect(console.log.mock.calls[3][0]).toEqual('7,10');
+});
+
+/**
+ * findSumOfDiagonalNodes
+ */
+
+it('findSumOfDiagonalNodes: should print sum of diagonal nodes', () => {
+  expect(findSumOfDiagonalNodes(a)).toEqual([20, 16, 12, 7]);
 });
