@@ -30,6 +30,11 @@ const {
   findMaximumSumAndSumPath,
 } = require('../40.find-maximum-sum-root-to-leaf-path-binary-tree/index');
 
+const {
+  calculateHeightOfBinaryTree_recursive,
+  calculateHeightOfBinaryTree_iterative,
+} = require('../2.calculate-height-binary-tree-iterative-recursive/index');
+
 describe('Unit tests for Binary Tree', () => {
   const log = console.log;
   let x;
@@ -225,5 +230,21 @@ describe('Unit tests for Binary Tree', () => {
    */
   it('findMaximumSumAndSumPath: should return maximum sum path from root to leaf', () => {
     expect(findMaximumSumAndSumPath(a)).toBe(20);
+  });
+
+  /**
+   * calculateHeightOfBinaryTree_recursive
+   */
+  it('calculateHeightOfBinaryTree_recursive: Calculate height of binary tree', () => {
+    expect(calculateHeightOfBinaryTree_recursive(a)).toBe(4);
+    expect(calculateHeightOfBinaryTree_iterative(x)).toBe(3);
+  });
+
+  /**
+   * calculateHeightOfBinaryTree_iterative
+   */
+  it('calculateHeightOfBinaryTree_iterative: Calculate height of binary tree', () => {
+    expect(calculateHeightOfBinaryTree_iterative(a)).toBe(4);
+    expect(calculateHeightOfBinaryTree_iterative(x)).toBe(3);
   });
 });
