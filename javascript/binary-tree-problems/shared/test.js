@@ -9,6 +9,9 @@ const {
 const {
   findSumOfDiagonalNodes,
 } = require('../34.find-diagonal-sum-given-binary-tree/index');
+const {
+  getDiagonalNodes,
+} = require('../35.print-diagonal-traversal-binary-tree/index');
 
 let x;
 let y;
@@ -128,4 +131,11 @@ it('printCornerNodes: should print all corner nodes of given tree', () => {
 
 it('findSumOfDiagonalNodes: should print sum of diagonal nodes', () => {
   expect(findSumOfDiagonalNodes(a)).toEqual([20, 16, 12, 7]);
+});
+
+/**
+ * findSumOfDiagonalNodes
+ */
+it('findSumOfDiagonalNodes: should return an array of all diagonal nodes', () => {
+  expect(getDiagonalNodes(a)).toEqual([[1, 3, 6, 10], [2, 5, 9], [4, 8], [7]]);
 });
