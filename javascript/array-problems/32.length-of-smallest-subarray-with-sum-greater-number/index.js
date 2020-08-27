@@ -1,7 +1,11 @@
 /**
+ * https://www.techiedelight.com/length-of-smallest-subarray-with-sum-greater-number/
  *
  * @param {Array} A
  * @param {Number} targetSum
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
  */
 const findLengthofSmallestSubArray_sol_1 = (A, targetSum) => {
   let smallestSubArrayLength = Number.MAX_VALUE;
