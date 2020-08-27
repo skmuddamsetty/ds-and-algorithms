@@ -35,6 +35,11 @@ const {
   calculateHeightOfBinaryTree_iterative,
 } = require('../2.calculate-height-binary-tree-iterative-recursive/index');
 
+const {
+  inorderTraversal_iterative,
+  inorderTraversal_recursive,
+} = require('../4.inorder-tree-traversal-iterative-recursive/index');
+
 describe('Unit tests for Binary Tree', () => {
   const log = console.log;
   let x;
@@ -246,5 +251,20 @@ describe('Unit tests for Binary Tree', () => {
   it('calculateHeightOfBinaryTree_iterative: Calculate height of binary tree', () => {
     expect(calculateHeightOfBinaryTree_iterative(a)).toBe(4);
     expect(calculateHeightOfBinaryTree_iterative(x)).toBe(3);
+  });
+
+  /**
+   * inorderTraversal_iterative
+   */
+
+  it('inorderTraversal_iterative: should return an array with elements in inorder traversal', () => {
+    expect(inorderTraversal_iterative(b)).toEqual([4, 2, 1, 7, 5, 8, 3, 6]);
+  });
+
+  /**
+   * inorderTraversal_recursive
+   */
+  it('inorderTraversal_recursive: should return an array with elements in inorder traversal', () => {
+    expect(inorderTraversal_recursive(b)).toEqual([4, 2, 1, 7, 5, 8, 3, 6]);
   });
 });
