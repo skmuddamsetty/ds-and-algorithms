@@ -1,6 +1,9 @@
 /**
  * https://www.techiedelight.com/rearrange-the-array-with-alternate-high-and-low-elements/
  * @param {Array} A
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
  */
 const rearrangeArray = (A) => {
   for (let i = 1; i < A.length - 1; i = i + 2) {
