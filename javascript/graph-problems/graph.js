@@ -64,6 +64,29 @@ class Graph {
     while (stack.length) {
       // shift or pop
       // it just changes the order of the nodes that it processes
+      temp = stack.pop();
+      if (!visited[temp]) {
+        results.push(temp);
+        visited[temp] = true;
+        stack.push(...this.adjacencyList[temp]);
+      }
+    }
+  }
+
+  bfs_iterative(vertex) {
+    const results = [];
+    const visited = {};
+    this.bfs_iterative_helper(vertex, results, visited);
+    return results;
+  }
+
+  bfs_iterative_helper(vertex, results, visited) {
+    let stack = [vertex];
+    let temp;
+    while (stack.length) {
+      // shift or pop
+      // it just changes the order of the nodes that it processes
+      // using shift here because we have to process the items in first come first serve process
       temp = stack.shift();
       if (!visited[temp]) {
         results.push(temp);
@@ -109,7 +132,8 @@ g.addEdge('D', 'E');
 g.addEdge('D', 'F');
 g.addEdge('E', 'F');
 
-// console.log(g.adjacencyList);
+console.log(g.adjacencyList);
 
 console.log(g.dfs_recursive('A'));
 console.log(g.dfs_iterative('A'));
+console.log(g.bfs_iterative('A'));
