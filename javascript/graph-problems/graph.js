@@ -30,23 +30,84 @@ class Graph {
       (item) => item !== v1
     );
   }
+
+  dfs_recursive(vertex) {
+    const results = [];
+    const visited = {};
+    this.dfs_recursive_helper(vertex, results, visited);
+    return results;
+  }
+
+  dfs_recursive_helper(vertex, results, visited) {
+    if (!vertex) {
+      return;
+    }
+    visited[vertex] = true;
+    results.push(vertex);
+    this.adjacencyList[vertex].forEach((neighbor) => {
+      if (!visited[neighbor]) {
+        this.dfs_recursive_helper(neighbor, results, visited);
+      }
+    });
+  }
+
+  dfs_iterative(vertex) {
+    const results = [];
+    const visited = {};
+    this.dfs_iterative_helper(vertex, results, visited);
+    return results;
+  }
+
+  dfs_iterative_helper(vertex, results, visited) {
+    let stack = [vertex];
+    let temp;
+    while (stack.length) {
+      temp = stack.shift();
+      if (!visited[temp]) {
+        results.push(temp);
+        visited[temp] = true;
+        stack.push(...this.adjacencyList[temp]);
+      }
+    }
+  }
 }
 
-let g = new Graph();
-g.addVertex('Tokyo');
-g.addVertex('Dallas');
-g.addVertex('Aspen');
-g.addVertex('Hong Kong');
-g.addVertex('Los Angeles');
+// let g = new Graph();
+// g.addVertex('Tokyo');
+// g.addVertex('Dallas');
+// g.addVertex('Aspen');
+// g.addVertex('Hong Kong');
+// g.addVertex('Los Angeles');
 
-g.addEdge('Tokyo', 'Dallas');
-g.addEdge('Tokyo', 'Hong Kong');
-g.addEdge('Dallas', 'Tokyo');
-g.addEdge('Dallas', 'Aspen');
-g.addEdge('Dallas', 'Hong Kong');
-g.addEdge('Dallas', 'Los Angeles');
-g.addEdge('Los Angeles', 'Hong Kong');
-// g.removeEdge('Tokyo', 'Dallas');
+// g.addEdge('Tokyo', 'Dallas');
+// g.addEdge('Tokyo', 'Hong Kong');
+// g.addEdge('Dallas', 'Tokyo');
+// g.addEdge('Dallas', 'Aspen');
+// g.addEdge('Dallas', 'Hong Kong');
+// g.addEdge('Dallas', 'Los Angeles');
+// g.addEdge('Los Angeles', 'Hong Kong');
+// // g.removeEdge('Tokyo', 'Dallas');
+// // console.log(g.adjacencyList);
+// g.removeVertex('Hong Kong');
 // console.log(g.adjacencyList);
-g.removeVertex('Hong Kong');
-console.log(g.adjacencyList);
+
+let g = new Graph();
+g.addVertex('A');
+g.addVertex('B');
+g.addVertex('C');
+g.addVertex('D');
+g.addVertex('E');
+g.addVertex('F');
+
+g.addEdge('A', 'B');
+g.addEdge('A', 'C');
+g.addEdge('B', 'D');
+g.addEdge('C', 'E');
+g.addEdge('D', 'E');
+g.addEdge('D', 'F');
+g.addEdge('E', 'F');
+
+// console.log(g.adjacencyList);
+
+console.log(g.dfs_recursive('A'));
+console.log(g.dfs_iterative('A'));
