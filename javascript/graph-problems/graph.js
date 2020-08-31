@@ -62,6 +62,8 @@ class Graph {
     let stack = [vertex];
     let temp;
     while (stack.length) {
+      // shift or pop
+      // it just changes the order of the nodes that it processes
       temp = stack.shift();
       if (!visited[temp]) {
         results.push(temp);
