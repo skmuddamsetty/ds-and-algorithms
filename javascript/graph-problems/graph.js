@@ -137,3 +137,11 @@ console.log(g.adjacencyList);
 console.log(g.dfs_recursive('A'));
 console.log(g.dfs_iterative('A'));
 console.log(g.bfs_iterative('A'));
+
+//          A
+//        /   \
+//       B     C
+//       |     |
+//       D --- E
+//        \   /
+//          F
